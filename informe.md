@@ -60,3 +60,8 @@ A continuación presentamos los diagramas equivalentes para cada una de las cate
 ### k=5
 
 ![Figura 5. Diagrama de pares obtenido para k=5. El programa llegó al máximo de 1000 iteraciones antes de converger](image-4.png)
+
+En general, ninguna de las categorizaciones obtenidas por el algoritmo se asemeja lo suficiente a la categorización original de los datos como para poder
+presentarlas comom acertadas. En particular nos interesa resaltar la categorización alcanzada para k=3, donde la comparación resulta más directa entre ambos diagramas. El diagrama original del conjunto de datos muestra picos muchos más concentrados y una distinción mucho más acentuada entre las distintas categorías; por el otro lado la categorización alcanzada por el algoritmo muestra una separación mucho más ambigua y una cantidad considerable de sobreposición en las diferentes gráficas. También destaca la muy acentuada presencia de la categoría número 2 (verde) por encima de las demás categorías, cosa que no se aprecia en el diagrama original.
+
+También destacable de esta ronda de experimentación fue el diagrama generado para el caso k=5, donde la categoría número 2 terminó desapareciendo completamente del panorama de categorización. Una ejecución posterior utilizando k=6 mostró un comportamiento bastante similar, con únicamente 4 categorías siendo mostradas en el resultado final. De aquí podríamos, aunque no de manera decisiva, asomar la posibilidad de que el set de datos tiende naturalmente a un máximo de 4 categorizaciones al someterlo al algoritmo; sin embargo, serían necesarias pruebas adicionales para poder sacar alguna conclusión al respecto.
