@@ -65,3 +65,63 @@ En general, ninguna de las categorizaciones obtenidas por el algoritmo se asemej
 presentarlas comom acertadas. En particular nos interesa resaltar la categorización alcanzada para k=3, donde la comparación resulta más directa entre ambos diagramas. El diagrama original del conjunto de datos muestra picos muchos más concentrados y una distinción mucho más acentuada entre las distintas categorías; por el otro lado la categorización alcanzada por el algoritmo muestra una separación mucho más ambigua y una cantidad considerable de sobreposición en las diferentes gráficas. También destaca la muy acentuada presencia de la categoría número 2 (verde) por encima de las demás categorías, cosa que no se aprecia en el diagrama original.
 
 También destacable de esta ronda de experimentación fue el diagrama generado para el caso k=5, donde la categoría número 2 terminó desapareciendo completamente del panorama de categorización. Una ejecución posterior utilizando k=6 mostró un comportamiento bastante similar, con únicamente 4 categorías siendo mostradas en el resultado final. De aquí podríamos, aunque no de manera decisiva, asomar la posibilidad de que el set de datos tiende naturalmente a un máximo de 4 categorizaciones al someterlo al algoritmo; sin embargo, serían necesarias pruebas adicionales para poder sacar alguna conclusión al respecto.
+
+## Experimento 2: Segmentación de imágenes
+
+Para el segundo experimento se aplicó el algoritmo de k-means sobre conjuntos de datos conteniendo, para 2 imágenes escogidas por el equipo, la información de los canales RGB para cada uno de sus pixeles. Con la categorización resultante de la aplicación del algoritmo se generaron posteriormente réplicas de las imágenes originales con paletas de colores determinadas por las categorías obtenidas (De esta forma, si se ejecutó el algoritmo con un valor de k=x, la imagen resultante estaría en una paleta de x colores). Dado que la imágenes generan conjunto de datos de tamaño considerable, se limitó la cota de iteraciones para cada ejecución del algoritmo a 30 iteraciones. A contuniación presentamos, para cada imagen, la imagen original y las réplicas obtenidas para cada ejecución del algoritmo
+
+### Imagen 1
+
+Imagen original:
+
+![](img/pitufo.jpg)
+
+Primer renderizado, k=15:
+
+![](img/pitufo.jpg_k=15_max_iter=30.png)
+
+Segundo renderizado, k=20:
+
+![](img/pitufo.jpg_k=20_max_iter=30.png)
+
+Tercer renderizado, k=30:
+
+![](img/pitufo.jpg_k=30_max_iter=30.png)
+
+Cuarto renderizado, k=50:
+
+![](img/pitufo.jpg_k=50_max_iter=30.png)
+
+Quinto renderizado, k=64:
+
+![](img/pitufo.jpg_k=64_max_iter=30.png)
+
+### Imagen 2
+
+Imagen original:
+
+![](img/super_mario_bros_1.jpg)
+
+Primer renderizado, k=8:
+
+![](img/super_mario_bros_1.jpg_k=8_max_iter=30.png)
+
+Segundo renderizado, k=16:
+
+![](img/super_mario_bros_1.jpg_k=16_max_iter=30.png)
+
+Tercer renderizado, k=32:
+
+![](img/super_mario_bros_1.jpg_k=32_max_iter=30.png)
+
+Cuarto renderizado, k=50:
+
+![](img/super_mario_bros_1.jpg_k=50_max_iter=30.png)
+
+Quinto renderizado, k=64:
+
+![](img/super_mario_bros_1.jpg_k=64_max_iter=30.png)
+
+De manera general, las imágenes generadas por el algoritmo cuentan con un nivel de similitud satisfactorio al compararlos con la fuente original, en especial en los renderizados obtenidos con números más elevados de clusters. Sin embargo, también es evidente que a medida que el valor de k va aumentando nos vamos acercando a un punto de rendimientos decrecientes. Particularmente, es difícil discernir a simple vista alguna diferencia entre el renderizado de k=50 y el de k=64 para la imagen 1; e incluso en la imagen 2, que cuenta con una variedad mucho mayor de colores y tonos, la diferencia para k=50 y k=64 no pareciera ser más significativa que una diferencia ligera en saturación. Esto dicho, se considera que el algoritmo tuvo un desempeño competente al momento de recolorizar las imágenes proveídas.
+
+## Conlusiones
